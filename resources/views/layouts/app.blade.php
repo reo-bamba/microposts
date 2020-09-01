@@ -9,12 +9,12 @@
 
     <body>
         {{-- navigationbar --}}
-        @include('conmmons.navbar')
+        @include('commons.navbar')
         
         <div class = "container">
             
             {{-- error message --}}
-            @include('commons.error_message')
+            @include('commons.error_messages')
             
             @yield('content')
             

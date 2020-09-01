@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        <div class ="collaps navbar-collapse" id ="nav-bar">
+        <div class ="collapse navbar-collapse" id ="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 {{-- link of user's registration --}}
