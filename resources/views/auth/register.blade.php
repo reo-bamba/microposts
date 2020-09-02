@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div ckass = "text-center">
-    <h1>Sign Up</h1>
-</div>
-<div class="row">
+    <div class="text-center">
+        <h1>Sign up</h1>
+    </div>
+
+    <div class="row">
         <div class="col-sm-6 offset-sm-3">
 
             {!! Form::open(['route' => 'signup.post']) !!}
