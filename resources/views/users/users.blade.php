@@ -1,16 +1,16 @@
-@if('count($users) > 0)
+@if(count($users) > 0)
 <ul class = "list-unstyled">
     @foreach($users as $user)
     <li class = "media">
         {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-        <img class = "mr-2 rounded"src = "{{ gravater::get($user->email, ['size' => 50]) }}" alt = "">
+        <img class="mr-2 rounded"src="{{ Gravatar::get($user->email, ['size' => 50]) }}"alt="">
         <div class = "media-body">
             <div>
-                 {{ $user=>name }}
+                 {{ $user->name }}
             </div>
             <div>
                 {{-- link to detail users page --}}
-                <p>{!! link_to_route('users.show', 'View profile', ['users' => $user->id]) !!}</p>
+                <p>{!! link_to_route('users.show', 'View profile', ['user' => $user->id]) !!}</p>
             </div>    
         </div>
     </li>

@@ -3,7 +3,7 @@
         {{-- link to top page --}}
         <a class "navbar-bland" href = "/">MicroPost</a>
         
-        <btton type = "button" class = "navbar-togglar" data-toggle="collapse" data-target="#nav-bar">
+        <button type = "button" class = "navbar-togglar" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -13,24 +13,26 @@
                
                 @if(Auth::check())
                 {{-- link to user list page --}}
-                 <li class="nav-item">{!! link_to_route('users.index', 'Users', [], ['class' => 'nav-link'] !!}</li>
+                 <li class="nav-item">{!! link_to_route('users.index', 'Users', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                        
                         <ul class="dropdown-menu dropdown-menu-right">
                             
-                            {{-- link to user detail page --}}
-                            <li class="dropdown-item">{!! link_to_route('users.show', 'My profile', ['user' => 'Auth::id()]) !!}</li>
-                            <li class="dropdown-divider"></li>
+                           {{-- ユーザ詳細ページへのリンク --}}
+                            <li class="dropdown-item">{!! link_to_route('users.show', 'My profile', ['user' => Auth::id()]) !!}</li>
+                                <li class="dropdown-divider"></li>
                             
-                            {{-- link to logout --}}
+                            {{-- ログアウトへのリンク --}}
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                            
                         </ul>
                     </li>
                @else
-                {{-- link to user registration page --}}
-                <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
-               {{-- link to login page --}}
-                <li class="nav-item">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}</li>
+                {{-- ユーザ登録ページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
+                    {{-- ログインページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}</li>
             @endif
             </ul>
             
