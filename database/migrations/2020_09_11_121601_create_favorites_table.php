@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserFollowTable extends Migration
+class CreateFavoritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateUserFollowTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_follow', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('follow_id');
+            $table->unsignedBigInteger('micropost_id');
             $table->timestamps();
             
             //外部キー
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('follow_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('micropost_id')->references('id')->on('microposts')->onDelete('cascade');
             
-            //user_id, follow_idの重複を許さない
-            $table->unique(['user_id', 'follow_id']);
+            //重複禁止
+            $table->unique(['user_id', 'micropost_id']);
         });
     }
 
@@ -35,6 +35,6 @@ class CreateUserFollowTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_follow');
+        Schema::dropIfExists('favorites');
     }
 }

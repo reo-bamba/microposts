@@ -3,11 +3,8 @@
         {{-- link to top page --}}
         <a class "navbar-bland" href = "/">MicroPost</a>
         
-        <button type = "button" class = "navbar-togglar" data-toggle="collapse" data-target="#nav-bar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         
-        <div class ="collapse navbar-collapse" id ="nav-bar">
+        <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                
@@ -21,13 +18,17 @@
                             
                            {{-- ユーザ詳細ページへのリンク --}}
                             <li class="dropdown-item">{!! link_to_route('users.show', 'My profile', ['user' => Auth::id()]) !!}</li>
-                                <li class="dropdown-divider"></li>
-                            
+                            <li class="dropdown-divider"></li>
+                                
                             {{-- ログアウトへのリンク --}}
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
                             
+                            {{-- favorite page --}}
+                            {{-- <li class = "dropdown-item">{!! link_to_route('users.favorites', 'My favorite', ['user' => Auth::id()]) !!}</li> --}}
+                            
                         </ul>
                     </li>
+        
                @else
                 {{-- ユーザ登録ページへのリンク --}}
                     <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link']) !!}</li>
